@@ -6,19 +6,18 @@ int main(){
 	int y = 1;
 
 	int* px = &x;
+        if(*px == *(px + 1)){
+                printf("x == y == %d \n" , *px);
+        }
+        else{
+                *px = *px ^ *(px + 1);
+                *(px + 1) = *px ^ *(px + 1);
+                *px = *(px + 1) ^ *px;
 
-	printf("before changing is \n");
-	printf("x == %d \n" , *px);
-	printf("y == %d \n" , *(px + 1));
-	
-	printf(" \n");
-	
-	*px = 2;
-	*(px + 1) = 3;
-	
-	printf("after changing is \n");
-        printf("x == %d \n" , *px);
-        printf("y == %d \n" , *(px + 1));
+                printf("x == %d \n" , *px);
+                printf("y == %d \n" , *(px + 1));
+        }
+
 
 return 0;
 }
